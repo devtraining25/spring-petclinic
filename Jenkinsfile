@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-	stage ('PetClinic - Build') {
+	stage('PetClinic - Build') {
  			// Maven build step
 	withMaven(maven: 'Maven 3.6.3') { 
  			if(isUnix()) {
