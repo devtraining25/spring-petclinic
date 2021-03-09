@@ -1,7 +1,8 @@
 pipeline {
     agent any
 
-    stages stage ('PetClinic - Checkout') {
+    stages {
+	stage ('PetClinic - Checkout') {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/devtraining25/spring-petclinic']]]) 
 	}
 	stage ('PetClinic - Build') {
@@ -31,8 +32,9 @@ pipeline {
              }
         stage('Deploy') {
             steps {
-                echo 'Deployings....'
+                echo 'Deploying....'
             }
         }
     }
+}
 }
