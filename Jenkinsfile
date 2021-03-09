@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+            stage('Git Checkout') {
+    gitCheckout(
+        branch: "master",
+        url: "https://github.com/spring-projects/spring-petclinic.git"
+    )
 	stage('PetClinic - Build') {
  			// Maven build step
 	withMaven(maven: 'Maven 3.6.3') { 
