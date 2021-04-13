@@ -28,10 +28,8 @@ node {
   }
   stage ('Docker Image: Build')
 {
-	steps
-	{
- bat 'docker build -t catherinadoherty25/project:latest .'
+	 bat 'docker build -t catherinadoherty25/project:latest .'
 	}
 	
-       }
+       
 }
