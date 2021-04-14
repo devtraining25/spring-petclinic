@@ -28,7 +28,7 @@ node {
   }
   stage ('Docker Image: Build')
 {
-	 bat 'docker build -t catherinadoherty25/project:latest .'
+	 bat 'docker build -t catherinadoherty25/collegeproject:latest .'
 	}
 	
        
