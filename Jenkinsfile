@@ -32,8 +32,8 @@ node {
 	}
   stage('Docker Image: Push to Docker Hub'){
     withCredentisls([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) { 
-  bat "docker login -u catherinadoherty25 -p ${dockerHubPwd}"
+  sh "docker login -u catherinadoherty25 -p ${dockerHubPwd}"
 }
-bat 'docker push catherinadoherty25/collegeproject:latest'
+sh 'docker push catherinadoherty25/collegeproject:latest'
 }       
-}}
+}
