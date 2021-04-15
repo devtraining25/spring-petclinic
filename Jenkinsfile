@@ -30,7 +30,7 @@ node {
 {
 	 bat 'docker build -t catherinadoherty25/collegeproject:latest .'
 	}
-  stage('Docker Image: Push to Docker Hub'){
+  stage('Push to Docker Image'){
     withCredentisls([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) { 
   sh "docker login -u catherinadoherty25 -p ${dockerHubPwd}"
 }
