@@ -36,7 +36,7 @@ node {
 }
 bat 'docker push catherinadoherty25/collegeproject:latest'
 }       
-        stage(Run Container)
+        stage('Run Container')
 {def dockerRun='docker run -p 8081:8080 catherinadoherty25/collegeproject'
 sshagent(['dev-server']) {
     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.35.157' ${dockerRun}}
