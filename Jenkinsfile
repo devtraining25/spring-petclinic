@@ -35,11 +35,9 @@ node {
   bat "docker login -u catherinadoherty25 -p ${dockerHubPwd}"
 }
 bat 'docker push catherinadoherty25/collegeproject:latest'
-}       
-        stage('Run Container'){
-                withCredentials([sshUserPrivateKey(credentialsId: 'ec2', keyFileVariable: 'EC2', passphraseVariable: '', usernameVariable: '')]) {
-    bat "sh -o StrictHostKeyChecking=no ec2-user@172.31.35.157"
-	}
-                bat 'docker run -p 8081:8080 catherinadoherty25/collegeproject'
-}
-}
+}    
+        stage('Run Docker Container on App Host'){
+        def dockerRun ='docker run -p 8080:8080 -d --name petclinic catherinadoherty25/collegeproject'        sshagent(['dev-server']) {
+            bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.35.157 ${dockerRun}"        }
+    }
+     }
